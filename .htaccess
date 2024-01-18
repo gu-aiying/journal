@@ -1,0 +1,13 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Do not apply to existing files
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Do not apply to existing directories
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect all requests to index.php
+# L means Last, it stops mod_rewrite processing immediately
+# This provides a slight performance improvement
+RewriteRule .* index.php [L]
